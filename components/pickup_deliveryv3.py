@@ -13,12 +13,15 @@ high = 2
 
 while True:
     try:
-        delivery = int(input())
+        delivery = int(input("Please enter a number "))
         if delivery == "1":
             print("Delivery")
+            break
     
         elif delivery == "2":
             print("Pickup")
+            break
     
     except ValueError:
         print("That is not a valid number")
+        print("Please enter 1 or 2")
