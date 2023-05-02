@@ -17,11 +17,35 @@ def welcome():
 
     num = randint(0,9)
     name = (names[num])
-    print("*** Welcome to BinkyBong Pizzas ***")
-    print("*** My name is",name, "***")
-    print("*** I will be here to help you order your delicious BinkyBong Pizza")
+    print("****************************************************************************")
+    print("*** Welcome to BinkyBong Pizzas                                          ***")
+    print("*** My name is",name, "                                                  ***")
+    print("*** I will be here to help you order your delicious BinkyBong Pizza      ***")
+    print("****************************************************************************")
 
 #Create menu for pickup or delivery
+def pickup():
+    print("Is your order being picked up at our store, or would you like it to be delivered?")
+    print("For pickup enter 1")
+    print("For delivery enter 2")
+
+    while True:
+        try:
+            delivery = int(input("Please enter a number "))
+            if delivery >= 1 and delivery <= 2:
+                if delivery == 1:
+                    print("Pickup")
+                    break
+
+                elif delivery == 2:
+                    print("Delivery")
+                    break
+            else:
+                print("The number must be 1 or 2")
+
+        except ValueError:
+            print("That is not a valid number")
+            print("Please enter 1 or 2")
 
 #Create pickup function
 
@@ -45,5 +69,7 @@ def main():
     Returns: None
     '''
     welcome()
+    pickup()
+
 
 main()
