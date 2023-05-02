@@ -13,7 +13,6 @@ while not valid:
     if customer_details['name'] != "":
         print(customer_details['name'])
         break
-
     else:
         print("Sorry this cannot be blank, please enter your name")
 

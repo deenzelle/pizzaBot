@@ -19,7 +19,6 @@ while not valid:
 valid = False
 while not valid:
     phone = input("Please enter your phone number ")
-
     if phone != "":
         print(phone)
         break
