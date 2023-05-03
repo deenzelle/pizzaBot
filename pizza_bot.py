@@ -1,4 +1,10 @@
 #Pizza bot program
+
+#3/5/23 p3 things
+#Bugs - Phone number input allows letters
+#name input allows numbers
+
+#imports randomness
 import random
 #imports ability to import random numbers from the random name list
 from random import randint
