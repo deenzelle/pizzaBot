@@ -7,8 +7,5 @@ pizza_prices = [8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 13.50, 13.50, 13.50, 1
 
 number_pizzas = 12
 
-#print("How many Dream pizzas would you like to order today?")
-#num_pizza = int(input)
-
 for count in range (number_pizzas):
-    print(count,pizza_names[count],pizza_prices[count])
+    print("{} {} ${:.2f}" .format(count+1,pizza_names[count],pizza_prices[count]))
