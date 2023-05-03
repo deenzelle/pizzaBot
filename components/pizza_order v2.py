@@ -23,7 +23,13 @@ menu()
 # ask for the total amount of pizzas for order
 num_pizzas = 0
 
-num_pizzas = int(input("How many pizzas do you want to order?: "))
+while True:
+    num_pizzas = int(input("How many pizzas do you want to order?: "))
+    if num_pizzas >= 1 and num_pizzas <= 5:
+        break
+    else:
+        print("Your order must be between 1 and 5")
+        
 
 print(num_pizzas)
 
