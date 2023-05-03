@@ -13,7 +13,7 @@ def not_blank(question):
         else:
             print("This cannot be blank")
 
-def pickup():
+def delivery():
     # instructions for asking for user's name
     question = ("Please enter your name: ")
     customer_details['name'] = not_blank(question )
@@ -39,4 +39,4 @@ def pickup():
     customer_details['suburb'] = not_blank(question )
     print (customer_details['suburb'])
 
-pickup()
+delivery()

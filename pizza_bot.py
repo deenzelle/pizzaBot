@@ -42,7 +42,7 @@ def welcome():
     print("*** I will be here to help you order your delicious Dream Pizza      ***")
     print("****************************************************************************")
 
-#Create menu for pickup or delivery
+#Create menu for pickup
 def order_type():
     print("Is your order being picked up at our store, or would you like it to be delivered?")
     print("For pickup enter 1")
@@ -54,11 +54,12 @@ def order_type():
             if delivery >= 1 and delivery <= 2:
                 if delivery == 1:
                     print("You have selected to have your pizza picked up!")
-                    pickup()
+                    pickup_info()
                     break
 
                 elif delivery == 2:
                     print("You have selected to have your pizza delivered!")
+                    delivery_info()
                     break
             else:
                 print("The number must be 1 or 2")
@@ -68,9 +69,9 @@ def order_type():
             print("Please enter 1 or 2")
 
 
-# Grabbing the user's name and phone number for pickup information
-# instructions for asking name
-def pickup():
+# Pickup information - name and number
+def pickup_info():
+    # instructions for asking name
     question = ("Please enter your name: ")
     customer_details['name'] = not_blank(question )
     # print (customer_details['name'])
@@ -79,6 +80,35 @@ def pickup():
     question = ("Please enter your phone number: ")
     customer_details['phone'] = not_blank(question )
     # print (customer_details['phone'])
+    print(customer_details)
+
+
+# Delivery information - Name, Phone number, Address
+def delivery_info():
+    # instructions for asking for user's name
+    question = ("Please enter your name: ")
+    customer_details['name'] = not_blank(question )
+    print (customer_details['name'])
+
+    # instructions for asking for user's phone number
+    question = ("Please enter your phone number: ")
+    customer_details['phone'] = not_blank(question )
+    print (customer_details['phone'])
+
+    # instructions for asking for user's house number
+    question = ("Please enter your house number: ")
+    customer_details['house'] = not_blank(question )
+    print (customer_details['house'])
+
+    # instructions for asking for user's street name
+    question = ("Please enter your street name: ")
+    customer_details['street'] = not_blank(question )
+    print (customer_details['street'])
+
+    # instructions for asking for user's suburb
+    question = ("Please enter your suburb: ")
+    customer_details['suburb'] = not_blank(question )
+    print (customer_details['suburb'])
     print(customer_details)
 
 #Create function so that user can choose number of pizzas required
