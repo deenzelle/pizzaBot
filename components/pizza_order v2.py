@@ -35,6 +35,7 @@ for item in range(num_pizzas):
         order_list.append(pizza_names[pizza_ordered])
         order_cost.append(pizza_prices[pizza_ordered])
         num_pizzas = num_pizzas-1
+        print("{} ${:.2f}" .format(pizza_names[pizza_ordered],pizza_prices[pizza_ordered]))
         
 #print(order_list)
 #print(order_cost)
