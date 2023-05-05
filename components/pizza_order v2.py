@@ -24,12 +24,15 @@ menu()
 num_pizzas = 0
 
 while True:
-    num_pizzas = int(input("How many pizzas do you want to order?: "))
-    if num_pizzas >= 1 and num_pizzas <= 5:
-        break
-    else:
-        print("Your order must be between 1 and 5")
-        
+    try:
+        num_pizzas = int(input("How many pizzas do you want to order?: "))
+        if num_pizzas >= 1 and num_pizzas <= 5:
+            break
+        else:
+            print("Your order must be between 1 and 5 pizzas")
+    except ValueError:
+        print("That is not a valid number")
+        print("Please choose a number between 1 and 5")
 
 print(num_pizzas)
 
