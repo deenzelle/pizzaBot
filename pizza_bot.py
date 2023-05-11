@@ -54,8 +54,9 @@ def welcome():
     print("*** I will be here to help you order your delicious Dream Pizza      ***")
     print("****************************************************************************")
 
-#Create menu for pickup
+#Create menu for pickup or delivery
 def order_type():
+    del_pick = ""
     print("Is your order being picked up at our store, or would you like it to be delivered?")
     print("For pickup enter 1")
     print("For delivery enter 2")
@@ -66,12 +67,14 @@ def order_type():
             if delivery >= 1 and delivery <= 2:
                 if delivery == 1:
                     print("You have selected to have your pizza picked up!")
+                    del_pick = "pickup"
                     pickup_info()
                     break
 
                 elif delivery == 2:
                     print("You have selected to have your pizza delivered!")
                     delivery_info()
+                    del_pick = "delivery"
                     break
             else:
                 print("The number must be 1 or 2")
@@ -79,6 +82,7 @@ def order_type():
         except ValueError:
             print("That is not a valid number")
             print("Please enter 1 or 2")
+        return del_pick
 
 
 # Pickup information - name and number
@@ -169,7 +173,28 @@ def order_pizza():
             num_pizzas = num_pizzas-1
             print("{} ${:.2f}" .format(pizza_names[pizza_ordered],pizza_prices[pizza_ordered]))
 
-#Create print function to display pizzas ordered, cost and delivery options if required
+#Print order out - including if order is delivery or pick up and the names and price of each pizza - total cost including any delivery charge
+def print_order(del_pick):
+    print()
+    total_cost = sum(order_cost)
+    print("Customer Details:")
+    if del_pick == "pickup":
+        print("Your order is for Pickup")
+        print(f"Customer Name: {customer_details['name']} \nCustomer Phone Number: {customer_details['phone']}")
+    elif del_pick == "delivery":
+        print("Your order is for delivery")
+        print(f"Customer Name: {customer_details['name']} \nCustomer Phone Number: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
+    print()
+    print("Order Details:")
+    count=0
+    for item in order_list:
+        print("Ordered: {}  Cost: ${:.2f}" .format(item, order_cost[count]))
+        count = count + 1
+
+    print()
+    print("Order Cost Details:")
+    print(f"The total cost of the order is: ${total_cost:.2f}")
+
 
 #Create cancel order function
 
@@ -183,9 +208,10 @@ def main():
     Returns: None
     '''
     welcome()
-    order_type()
+    del_pick = order_type()
     menu()
     order_pizza()
+    print_order(del_pick)
 
 
 main()
