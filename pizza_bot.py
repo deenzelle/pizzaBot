@@ -60,15 +60,14 @@ def order_type():
     print("Is your order being picked up at our store, or would you like it to be delivered?")
     print("For pickup enter 1")
     print("For delivery enter 2")
-
     while True:
         try:
             delivery = int(input("Please enter a number: "))
             if delivery >= 1 and delivery <= 2:
                 if delivery == 1:
                     print("You have selected to have your pizza picked up!")
-                    del_pick = "pickup"
                     pickup_info()
+                    del_pick = "pickup"
                     break
 
                 elif delivery == 2:
