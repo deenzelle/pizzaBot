@@ -4,6 +4,9 @@
 #Bugs - Phone number input allows letters
 #name input allows numbers
 
+#15/05/23
+#minor problem but it doesnt print out the customer details at the end
+
 #imports randomness
 import random
 #imports ability to import random numbers from the random name list
@@ -69,9 +72,10 @@ def order_type():
                     pickup_info()
                     del_pick = "pickup"
                     break
-
                 elif delivery == 2:
                     print("You have selected to have your pizza delivered!")
+                    order_list.append("Delivery Charge")
+                    order_cost.append(5)
                     delivery_info()
                     del_pick = "delivery"
                     break
@@ -181,7 +185,7 @@ def print_order(del_pick):
         print("Your order is for Pickup")
         print(f"Customer Name: {customer_details['name']} \nCustomer Phone Number: {customer_details['phone']}")
     elif del_pick == "delivery":
-        print("Your order is for delivery")
+        print("Your order is for delivery ($5.00 delivery charge applies)")
         print(f"Customer Name: {customer_details['name']} \nCustomer Phone Number: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
     print()
     print("Order Details:")
