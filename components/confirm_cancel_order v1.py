@@ -1,5 +1,3 @@
-#component numero 8
-
 print("Please confirm your order")
 print("To confirm your order, enter 1")
 print("To cancel your order, enter 2")
@@ -23,3 +21,4 @@ while True:
     except ValueError:
         print("That is not a valid number")
         print("Please enter 1 or 2")
+        

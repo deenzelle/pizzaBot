@@ -12,6 +12,8 @@ import random
 #imports ability to import random numbers from the random name list
 from random import randint
 
+import sys
+
 #list of random names
 names = ["Bread", "Moana", "Mark", "Phoebe", "Sally", "Michael", "Chaewon", "Haewon", "Hanni", "Joaquin"]
 
@@ -212,11 +214,13 @@ def confirm_cancel():
                 if confirm == 1:
                     print("Your order has been confirmed!")
                     print("Your pizza will be with you shortly")
+                    new_exit()
                     break
 
                 elif confirm == 2:
                     print("Your order has been cancelled")
                     print("You can restart your order or exit the BOT")
+                    new_exit()
                     break
             else:
                 print("The number must be 1 or 2")
@@ -227,6 +231,36 @@ def confirm_cancel():
         
 
 #Create option for new order or to exit
+def new_exit():
+    print("Do you want to start another order or exit the bot?")
+    print("To start another order, enter 1")
+    print("To exit the BOT, enter 2")
+
+    while True:
+        try:
+            confirm = int(input("Please enter a number "))
+            if confirm >= 1 and confirm <= 2:
+                if confirm == 1:
+                    print("New Order")
+                    order_list.clear()
+                    order_cost = [].clear()
+                    customer_details.clear()
+                    main()
+                    break
+
+                elif confirm == 2:
+                    print("Exit")
+                    order_list.clear()
+                    order_cost = [].clear()
+                    customer_details.clear()
+                    sys.exit()
+                    break
+            else:
+                print("The number must be 1 or 2")
+
+        except ValueError:
+            print("That is not a valid number")
+            print("Please enter 1 or 2")
 
 #Main function
 def main():
