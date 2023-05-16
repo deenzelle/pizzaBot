@@ -85,7 +85,7 @@ def order_type():
         except ValueError:
             print("That is not a valid number")
             print("Please enter 1 or 2")
-        return del_pick
+    return del_pick
 
 
 # Pickup information - name and number
@@ -200,6 +200,31 @@ def print_order(del_pick):
 
 
 #Create cancel order function
+def confirm_cancel():
+    print("Please confirm your order")
+    print("To confirm your order, enter 1")
+    print("To cancel your order, enter 2")
+
+    while True:
+        try:
+            confirm = int(input("Please enter a number "))
+            if confirm >= 1 and confirm <= 2:
+                if confirm == 1:
+                    print("Your order has been confirmed!")
+                    print("Your pizza will be with you shortly")
+                    break
+
+                elif confirm == 2:
+                    print("Your order has been cancelled")
+                    print("You can restart your order or exit the BOT")
+                    break
+            else:
+                print("The number must be 1 or 2")
+
+        except ValueError:
+            print("That is not a valid number")
+            print("Please enter 1 or 2")
+        
 
 #Create option for new order or to exit
 
@@ -215,6 +240,7 @@ def main():
     menu()
     order_pizza()
     print_order(del_pick)
+    confirm_cancel()
 
 
 main()

@@ -10,10 +10,12 @@ while True:
         if confirm >= 1 and confirm <= 2:
             if confirm == 1:
                 print("Your order has been confirmed!")
+                print("Your pizza will be with you shortly")
                 break
 
             elif confirm == 2:
                 print("Your order has been cancelled")
+                print("You can restart your order or exit the BOT")
                 break
         else:
             print("The number must be 1 or 2")
