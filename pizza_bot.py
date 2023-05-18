@@ -81,7 +81,7 @@ def order_type():
     print("Is your order being picked up at our store, or would you like it to be delivered?")
     print("For pickup enter 1")
     print("For delivery enter 2")
-    delivery = val_int(low, high, question)
+    delivery = val_int(LOW, HIGH, question)
     if delivery == 1:
         print("You have selected to have your pizza picked up!")
         pickup_info()
@@ -90,7 +90,7 @@ def order_type():
         print("You have selected to have your pizza delivered!")
         order_list.append("Delivery Charge")
         order_cost.append(5)
-         delivery_info()
+        delivery_info()
         del_pick = "delivery"
     return del_pick
 
@@ -155,13 +155,13 @@ def order_pizza():
     MENU_HIGH = 12
     question = (f"Enter a number between {LOW} and {HIGH}: ")
     print("How many pizzas do you want to order?")
-    num_pizzas = val_int(low, high, question)
+    num_pizzas = val_int(LOW, HIGH, question)
 
     # Choose pizza from menu
     for item in range(num_pizzas):
         while num_pizzas > 0:
             print("Please choose your pizzas by entering the number on the menu: ")
-            question = (f"Enter a number between {MENU_LOW} and {MENO_HIGH}: ")
+            question = (f"Enter a number between {MENU_LOW} and {MENU_HIGH}: ")
             pizza_ordered = val_int(MENU_LOW, MENU_HIGH, question)
             order_list.append(pizza_names[pizza_ordered])
             order_cost.append(pizza_prices[pizza_ordered])
