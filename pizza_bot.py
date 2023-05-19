@@ -67,9 +67,9 @@ def welcome():
     num = randint(0,9)
     name = (names[num])
     print("****************************************************************************")
-    print("*** Welcome to Dream Pizzas                                          ***")
+    print("*** Welcome to Dream Pizzas                                              ***")
     print("*** My name is",name, "                                                  ***")
-    print("*** I will be here to help you order your delicious Dream Pizza      ***")
+    print("*** I will be here to help you order your delicious Dream Pizza          ***")
     print("****************************************************************************")
 
 #Create menu for pickup or delivery
