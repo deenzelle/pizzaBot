@@ -1,28 +1,30 @@
-#Pizza bot program
+# Pizza bot program
 
-#3/5/23 p3 things
-#Bugs - Phone number input allows letters
-#name input allows numbers
+# 3/5/23 p3 things
+# Bugs - Phone number input allows letters
+# name input allows numbers
 
-#known bugs
+# known bugs
 # 18/5/23 - final printout is not printing customer details correctly
 
-#imports randomness
+# imports randomness
 import random
-#imports ability to import random numbers from the random name list
+# imports ability to import random numbers from the random name list
 from random import randint
 
 import sys
 
-#list of random names
-names = ["Bread", "Moana", "Mark", "Phoebe", "Sally", "Michael", "Chaewon", "Haewon", "Hanni", "Joaquin"]
+# list of random names
+names = ["Bread", "Moana", "Mark", "Phoebe", "Sally",
+         "Michael", "Chaewon", "Haewon", "Hanni", "Joaquin"]
 
-#list of pizzas
+# list of pizzas
 pizza_names = ['Margherita', 'Pepperoni', 'Hawaiian', 'Cheese', 'Italian', 'Veggie',
                'Vegan', 'Chicken Deluxe', 'Mega Meat Lovers', 'Seafood Deluxe', 'Apricot Chicken Deluxe', 'BBQ Chicken Deluxe']
 
-#list of pizza prices (in order)
-pizza_prices = [8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 13.50, 13.50, 13.50, 13.50, 13.50]
+# list of pizza prices (in order)
+pizza_prices = [8.50, 8.50, 8.50, 8.50, 8.50,
+                8.50, 8.50, 13.50, 13.50, 13.50, 13.50, 13.50]
 
 # list to store ordered pizzas
 order_list = []
@@ -30,6 +32,8 @@ order_list = []
 order_cost = []
 
 # validates input to check if they are blank
+
+
 def not_blank(question):
     valid = False
     while not valid:
@@ -39,7 +43,9 @@ def not_blank(question):
         else:
             print("This cannot be blank")
 
-# validates input to check if they are an integer      
+# validates input to check if they are an integer
+
+
 def val_int(low, high, question):
     while True:
         try:
@@ -47,15 +53,18 @@ def val_int(low, high, question):
             if num >= low and num <= high:
                 return num
             else:
-                print(f"Enter a number between {low} and {high}")               
+                print(f"Enter a number between {low} and {high}")
         except ValueError:
             print("That is not a valid number")
-            print(f"Enter a number between {low} and {high}")            
-            
+            print(f"Enter a number between {low} and {high}")
+
+
 # Creates the customer detail dictionary to have memory of user input
 customer_details = {}
 
-#Welcome message with random name
+# Welcome message with random name
+
+
 def welcome():
     '''
     Purpose: To generate a random name from the list and print out 
@@ -64,15 +73,18 @@ def welcome():
     Returns: None
     '''
 
-    num = randint(0,9)
+    num = randint(0, 9)
     name = (names[num])
     print("****************************************************************************")
     print("*** Welcome to Dream Pizzas                                              ***")
-    print("*** My name is",name, "                                                  ***")
+    print("*** My name is", name,
+          "                                                  ***")
     print("*** I will be here to help you order your delicious Dream Pizza          ***")
     print("****************************************************************************")
 
-#Create menu for pickup or delivery
+# Create menu for pickup or delivery
+
+
 def order_type():
     del_pick = ""
     LOW = 1
@@ -99,12 +111,12 @@ def order_type():
 def pickup_info():
     # instructions for asking name
     question = ("Please enter your name: ")
-    customer_details['name'] = not_blank(question )
+    customer_details['name'] = not_blank(question)
     # print (customer_details['name'])
 
     # instructions for asking for user's phone number
     question = ("Please enter your phone number: ")
-    customer_details['phone'] = not_blank(question )
+    customer_details['phone'] = not_blank(question)
     # print (customer_details['phone'])
     print(customer_details)
 
@@ -113,39 +125,42 @@ def pickup_info():
 def delivery_info():
     # instructions for asking for user's name
     question = ("Please enter your name: ")
-    customer_details['name'] = not_blank(question )
-    print (customer_details['name'])
+    customer_details['name'] = not_blank(question)
+    print(customer_details['name'])
 
     # instructions for asking for user's phone number
     question = ("Please enter your phone number: ")
-    customer_details['phone'] = not_blank(question )
-    print (customer_details['phone'])
+    customer_details['phone'] = not_blank(question)
+    print(customer_details['phone'])
 
     # instructions for asking for user's house number
     question = ("Please enter your house number: ")
-    customer_details['house'] = not_blank(question )
-    print (customer_details['house'])
+    customer_details['house'] = not_blank(question)
+    print(customer_details['house'])
 
     # instructions for asking for user's street name
     question = ("Please enter your street name: ")
-    customer_details['street'] = not_blank(question )
-    print (customer_details['street'])
+    customer_details['street'] = not_blank(question)
+    print(customer_details['street'])
 
     # instructions for asking for user's suburb
     question = ("Please enter your suburb: ")
-    customer_details['suburb'] = not_blank(question )
-    print (customer_details['suburb'])
+    customer_details['suburb'] = not_blank(question)
+    print(customer_details['suburb'])
 
-#Create pizza menu
+# Create pizza menu
+
+
 def menu():
     number_pizzas = 12
 
-    for count in range (number_pizzas):
-        print("{} {} ${:.2f}" .format(count+1,pizza_names[count],pizza_prices[count]))
+    for count in range(number_pizzas):
+        print("{} {} ${:.2f}" .format(
+            count+1, pizza_names[count], pizza_prices[count]))
 
 
-#Create function so that user can choose number of pizzas required
-#Create pizza ordering function
+# Create function so that user can choose number of pizzas required
+# Create pizza ordering function
 def order_pizza():
     # ask for the total amount of pizzas for order
     num_pizzas = 0
@@ -166,22 +181,27 @@ def order_pizza():
             order_list.append(pizza_names[pizza_ordered])
             order_cost.append(pizza_prices[pizza_ordered])
             num_pizzas = num_pizzas-1
-            print("{} ${:.2f}" .format(pizza_names[pizza_ordered],pizza_prices[pizza_ordered]))
+            print("{} ${:.2f}" .format(
+                pizza_names[pizza_ordered], pizza_prices[pizza_ordered]))
 
-#Print order out - including if order is delivery or pick up and the names and price of each pizza - total cost including any delivery charge
+# Print order out - including if order is delivery or pick up and the names and price of each pizza - total cost including any delivery charge
+
+
 def print_order(del_pick):
     print()
     total_cost = sum(order_cost)
     print("Customer Details:")
     if del_pick == "pickup":
         print("Your order is for Pickup")
-        print(f"Customer Name: {customer_details['name']} \nCustomer Phone Number: {customer_details['phone']}")
+        print(
+            f"Customer Name: {customer_details['name']} \nCustomer Phone Number: {customer_details['phone']}")
     elif del_pick == "delivery":
         print("Your order is for delivery ($5.00 delivery charge applies)")
-        print(f"Customer Name: {customer_details['name']} \nCustomer Phone Number: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
+        print(
+            f"Customer Name: {customer_details['name']} \nCustomer Phone Number: {customer_details['phone']} \nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
     print()
     print("Order Details:")
-    count=0
+    count = 0
     for item in order_list:
         print("Ordered: {}  Cost: ${:.2f}" .format(item, order_cost[count]))
         count = count + 1
@@ -191,7 +211,7 @@ def print_order(del_pick):
     print(f"The total cost of the order is: ${total_cost:.2f}")
 
 
-#Create cancel order function
+# Create cancel order function
 def confirm_cancel():
     LOW = 1
     HIGH = 2
@@ -210,9 +230,8 @@ def confirm_cancel():
         print("You can restart your order or exit the BOT")
         new_exit()
 
-       
 
-#Create option for new order or to exit
+# Create option for new order or to exit
 def new_exit():
     LOW = 1
     HIGH = 2
@@ -235,7 +254,9 @@ def new_exit():
         customer_details.clear()
         sys.exit()
 
-#Main function
+# Main function
+
+
 def main():
     '''
     Purpose: To run all functions
